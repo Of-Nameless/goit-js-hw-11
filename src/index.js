@@ -11,8 +11,8 @@ const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
 });
-// let page = null;
-// let limitPerPage = 0;
+let page = null;
+let limitPerPage = 0;
 
 form.addEventListener('submit', onSubmit);
 window.addEventListener('scroll', throttle(infinityScroll, 500))
@@ -54,8 +54,8 @@ async function fetchArticles() {
     createMarkup(hits);
     lightbox.refresh();    
 
-    let page = apiService.page - 1;
-    let limitPerPage = apiService.per_page;
+    page = apiService.page - 1;
+    limitPerPage = apiService.per_page;
     if (apiService.page - 1 === 1) {
       Notify.success(`Hooray! We found ${totalHits} images.`)
     };
