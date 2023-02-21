@@ -26,12 +26,12 @@ function onSubmit(e) {
   const form = e.target;
   const value = form.elements.searchQuery.value.trim();
   if (value === '') {
-    // loadMoreBtn.isHidden();
+    loadMoreBtn.isHidden();
     return
   }
 
-  apiService.resetPage();
-  clearImages();
+  // apiService.resetPage();
+  // clearImages();
 
   apiService.query = value;
 
@@ -63,7 +63,7 @@ async function fetchArticles() {
     limitPerPage = apiService.per_page;
     if (apiService.page - 1 === 1) {
       Notify.success(`Hooray! We found ${totalHits} images.`),
-        loadMoreBtn.isShown();
+      loadMoreBtn.isShown()
     };
     
     const totalPages = totalHits / limitPerPage;
@@ -116,7 +116,7 @@ function createMarkup(arr) {
       <b>${comments}</b>
     </h3>
     <h3>
-      <b>Downloads</b>
+      <b>Downloads:</b>
       <b>${downloads}</b>
     </h3>
   </div>
@@ -145,8 +145,8 @@ async function infinityScroll() {
   const position = scrolled + screenHeight;
   if (position >= threshold) {
     page++;
-    onSubmit()
-   }
+    fetchArticles()
+  };
 
   // const documentRect = document.documentElement.getBoundingClientRect();
   // if (documentRect.bottom < document.documentElement.clientHeight + 150) {
