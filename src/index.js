@@ -30,8 +30,8 @@ function onSubmit(e) {
     return
   }
 
-  // apiService.resetPage();
-  // clearImages();
+  apiService.resetPage();
+  clearImages();
 
   apiService.query = value;
 
@@ -52,7 +52,8 @@ async function fetchArticles() {
       throw new Error(
       Notify.failure(
     'Sorry, there are no images matching your search query. Please try again.'
-    )
+        ),
+        loadMoreBtn.isHidden()
       )
     };
 
