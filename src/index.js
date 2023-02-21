@@ -47,6 +47,11 @@ async function fetchArticles() {
     console.log(hits);
     const totalHits = data.totalHits;
     console.log(totalHits);
+    const totalPages = totalHits / limitPerPage;
+    page = apiService.page - 1;
+    limitPerPage = apiService.per_page;
+    createMarkup(hits);
+    lightbox.refresh(); 
 
     if (hits.length === 0) {
       throw new Error(
@@ -55,20 +60,14 @@ async function fetchArticles() {
         ),
         loadMoreBtn.isHidden(),
       )
-    };
+    } 
 
-    createMarkup(hits);
-    lightbox.refresh();  
-
-    page = apiService.page - 1;
-    limitPerPage = apiService.per_page;
-    if (apiService.page - 1 === 1) {
+    else if (apiService.page - 1 === 1) {
       Notify.success(`Hooray! We found ${totalHits} images.`),
       loadMoreBtn.isShown()
-    };
+    }
     
-    const totalPages = totalHits / limitPerPage;
-    if (page > totalPages) {
+    else if (page > totalPages) {
       throw new Error(
         Notify.info(
       "We're sorry, but you've reached the end of search results."
