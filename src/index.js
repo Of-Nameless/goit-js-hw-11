@@ -50,10 +50,10 @@ async function fetchArticles() {
 
     if (hits.length === 0) {
       throw new Error(
-      Notify.failure(
-    'Sorry, there are no images matching your search query. Please try again.'
+        Notify.failure(
+          'Sorry, there are no images matching your search query. Please try again.'
         ),
-        loadMoreBtn.isHidden()
+        loadMoreBtn.isHidden(),
       )
     };
 
@@ -72,7 +72,8 @@ async function fetchArticles() {
       throw new Error(
         Notify.info(
       "We're sorry, but you've reached the end of search results."
-        )
+        ),
+        loadMoreBtn.enable()
       )
     }
 

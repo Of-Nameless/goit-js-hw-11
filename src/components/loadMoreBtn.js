@@ -17,6 +17,7 @@ export default class LoadMoreBtn {
 
   isShown() {
     this.button.classList.remove('hidden');
+    this.button.textContent = 'Load more'
   }
 
   disable() {
@@ -26,5 +27,6 @@ export default class LoadMoreBtn {
 
   enable() {
     this.button.disabled = false;
+    this.button.textContent = 'Load more'
   }
 }
