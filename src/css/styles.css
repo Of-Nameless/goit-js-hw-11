@@ -12,10 +12,7 @@ p {
 }
 
 body {
-  min-height: 100vh;
   scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
   font-size: 10px;
 }
 
@@ -67,11 +64,10 @@ img {
   display: flex;
   flex-direction: column;
   text-align: center;
-  /* justify-content: center; */
   background-color: white;
   color: black;
   width: 100%;
-  top: 200px;
+  top: 218px;
 }
 
 .icon {
@@ -92,6 +88,7 @@ img {
   background-color: black;
   padding: 10px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 button.hidden {
