@@ -21,6 +21,7 @@ export default class LoadMoreBtn {
 
   disable() {
     this.button.disabled = true; 
+    this.button.textContent = 'Page is loading...';
   }
 
   enable() {
